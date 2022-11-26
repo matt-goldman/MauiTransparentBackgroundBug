@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SearchBarTransparentBug"
+             xmlns:models="clr-namespace:SearchBarTransparentBug.Models"
+             x:Class="SearchBarTransparentBug.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <SearchBar HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       MaximumWidthRequest="300"
+                       Margin="50,0"
+                       BackgroundColor="{Binding Source={x:Reference ColorPicker}, Path=SelectedItem.Color}"
+                       x:Name="search"/>
+
+            <Picker HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Title="Choose a color"
+                    x:Name="ColorPicker"
+                    ItemDisplayBinding="{Binding Name}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type models:TestColor}">
+                        <models:TestColor Color="Beige" Name="Beige"/>
+                        <models:TestColor Color="Blue" Name="Blue"/>
+                        <models:TestColor Color="Pink" Name="Pink"/>
+                        <models:TestColor Color="Red" Name="Red"/>
+                        <models:TestColor Color="Yellow" Name="Yellow"/>
+                        <models:TestColor Color="Green" Name="Green"/>
+                        <models:TestColor Color="Transparent" Name="Transparent"/>
+                    </x:Array>
+
+                </Picker.ItemsSource>
+
+            </Picker>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
